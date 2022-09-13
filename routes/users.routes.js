@@ -3,11 +3,11 @@ const express = require('express');
 // Controllers
 const { getAllUsers, createUser, deleteUser, updateUser } = require('../controllers/user.controller');
 
-const {validateSession, validateUserData, validateUserRole} = require('../middlewares/example.middleware')
+const {validateRegister} = require('../middlewares/users.middlewares')
 
 const usersRouter = express.Router();
 
-usersRouter.get('/', validateSession, validateUserRole, validateUserData ,getAllUsers);  
+usersRouter.get('/', getAllUsers);  
 
 usersRouter.post('/', createUser);
 
